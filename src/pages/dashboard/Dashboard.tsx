@@ -1,6 +1,6 @@
 import StatCard from "../../components/ui/StatsCard";
-import InfectedAgentsTable from "../../features/dashboard/components/InfectedAgentsTable";
-import SystemLogsCard from "../../features/dashboard/components/SystemLogsCard";
+import InfectedAgentsTable from "./components/InfectedAgentsTable";
+import SystemLogsCard from "./components/SystemLogsCard";
 
 
 export default function Dashboard() {
@@ -58,7 +58,7 @@ export default function Dashboard() {
     <div className="flex flex-col px-14 py-10 ">
       <div className="w-full border-b border-green">
         <h1 className="text-4xl font-semibold text-green pb-7 ">
-          Dashboard Overview
+          Dashboard Overview <span className="inline-block w-3 h-3 rounded-full bg-green ml-2 animate-pulse" />
         </h1>
       </div>
       {/* Stats Card */}
