@@ -15,15 +15,23 @@ export default function Notes() {
 
   const handleSave = (title: string, content: string) => {
     if (editingNote) {
+      // Jika edit, kita bisa pilih mau update jamnya atau biarkan jam lama
       setNotes(notes.map(n => n.id === editingNote.id ? { ...n, title, content } : n));
     } else {
       const newNote: Note = {
         id: Date.now().toString(),
         title,
         content,
-        date: new Date().toLocaleDateString()
+        // MENGGUNAKAN FORMAT: "6 Apr 2026, 21:23"
+        date: new Date().toLocaleString('id-ID', {
+          day: '2-digit',
+          month: 'short',
+          year: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit'
+        }).replace('.', ':') // Mengganti titik menjadi titik dua untuk jam
       };
-      setNotes([newNote, ...notes]); // Catatan baru di paling atas
+      setNotes([newNote, ...notes]);
     }
     setEditingNote(null);
   };
@@ -42,12 +50,9 @@ export default function Notes() {
       <div className="flex gap-10 h-full">
 
         {/* KOLOM KIRI: HISTORY NOTE */}
-        <div className="w-1/3 flex flex-col border-r border-green/20 pr-10">
-          <h2 className="text-xl font-bold text-green mb-6 uppercase tracking-widest">
+        <div className="bg-green/5 rounded-lg w-1/3 flex flex-col p-5 border border-green/20  ">
 
-          </h2>
-
-          <div className="space-y-4 overflow-y-auto max-h-[600px] pr-4 custom-scrollbar">
+          <div className="space-y-4 overflow-y-auto max-h-[600px] custom-scrollbar">
             {notes.length === 0 ? (
               <p className="text-green/30 italic">No notes yet...</p>
             ) : (

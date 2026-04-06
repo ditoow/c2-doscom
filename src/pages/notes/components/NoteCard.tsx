@@ -9,7 +9,7 @@ type NoteCardProps = {
 
 export default function NoteCard({ title, content, date, isActive, onDelete, onEdit }: NoteCardProps) {
     return (
-        <div className={`border p-6 flex flex-col justify-between hover:bg-green/5 transition-all group ${isActive ? 'bg-green/10 border-green' : 'border-green/50'}`}>
+        <div className={`border p-6 flex flex-col justify-between rounded-lg  hover:bg-green/5 transition-all group ${isActive ? 'bg-green/10 border-green' : 'border-green/50'}`}>
             <div>
                 <h3 className="text-xl font-bold mb-1 uppercase text-green">{title}</h3>
                 <p className="text-sm text-green/60 mb-3">{date}</p>

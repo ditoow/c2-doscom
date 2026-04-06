@@ -35,7 +35,7 @@ export default function NoteForm({
     };
 
     return (
-        <div className="bg-green/5 border border-green/30 p-8 rounded-lg flex flex-col h-full">
+        <div className=" border-green/30 p-8 rounded flex flex-col h-full">
             <h2 className="text-2xl font-bold text-green mb-8 uppercase tracking-widest">
                 {isEditing ? "> Update Note" : "Create New Note"}
             </h2>
@@ -70,7 +70,7 @@ export default function NoteForm({
                     <button
                         type="button"
                         onClick={handleClear}
-                        className="flex-1 border border-green text-green py-3 font-bold hover:bg-green/10 transition-all uppercase text-sm tracking-wider"
+                        className="rounded-xl flex-1 border border-green text-green py-3 font-bold hover:bg-green/10 transition-all uppercase text-sm tracking-wider"
                     >
                         Clear
                     </button>
@@ -79,7 +79,7 @@ export default function NoteForm({
                     <button
                         type="button"
                         onClick={() => onSave(title, content)}
-                        className="flex-[2] bg-green text-black py-3 font-bold hover:bg-green/80 transition-all uppercase text-sm tracking-wider"
+                        className="rounded-xl flex-[2] bg-green text-black py-3 font-bold hover:bg-green/80 transition-all uppercase text-sm tracking-wider"
                     >
                         {isEditing ? "Update Note" : "Save Note"}
                     </button>
