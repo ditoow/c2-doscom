@@ -35,7 +35,7 @@ export default function NoteCard({ title, content, date, isActive, onDelete, onE
                             }}
                             className="text-sm text-blue-400 hover:underline"
                         >
-                            EDIT_DATA
+                            Edit Note
                         </button>
                         <button
                             onClick={(e) => {
@@ -44,7 +44,7 @@ export default function NoteCard({ title, content, date, isActive, onDelete, onE
                             }}
                             className="text-sm text-red-500 hover:underline"
                         >
-                            TERMINATE
+                            Hapus
                         </button>
                     </div>
                 </div>

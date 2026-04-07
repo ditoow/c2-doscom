@@ -1,4 +1,11 @@
 import { useState, useEffect } from "react";
+import {
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogHeader,
+    DialogTitle,
+} from "@/components/ui/dialog";
 
 type NoteFormProps = {
     onSave: (title: string, content: string) => void;
@@ -17,6 +24,7 @@ export default function NoteForm({
 }: NoteFormProps) {
     const [title, setTitle] = useState(initialTitle);
     const [content, setContent] = useState(initialContent);
+    const [showError, setShowError] = useState(false);
 
     // Sync data ketika user memilih note lain dari history untuk di-edit
     useEffect(() => {
@@ -36,6 +44,24 @@ export default function NoteForm({
 
     return (
         <div className=" border-green/30 p-8 rounded flex flex-col h-full">
+            <Dialog open={showError} onOpenChange={setShowError}>
+                <DialogContent className="border-green/50">
+                    <DialogHeader>
+                        <DialogTitle className="text-red-500 text-xl">Gagal Menyimpan</DialogTitle>
+                        <DialogDescription className="text-black/80 mt-2">
+                            Judul harus diisi sebelum menyimpan note.
+                        </DialogDescription>
+                    </DialogHeader>
+                    <div className="flex justify-end mt-4">
+                        <button
+                            onClick={() => setShowError(false)}
+                            className="bg-green text-black px-6 py-2 rounded-lg font-bold hover:bg-green/80 transition-all"
+                        >
+                            OK
+                        </button>
+                    </div>
+                </DialogContent>
+            </Dialog>
             <h2 className="text-2xl font-bold text-green mb-8 uppercase tracking-widest">
                 {isEditing ? "> Update Note" : "Create New Note"}
             </h2>
@@ -78,7 +104,13 @@ export default function NoteForm({
 
                     <button
                         type="button"
-                        onClick={() => onSave(title, content)}
+                        onClick={() => {
+                            if (!title.trim()) {
+                                setShowError(true);
+                            } else {
+                                onSave(title, content);
+                            }
+                        }}
                         className="rounded-xl flex-1 bg-green text-black py-3 font-bold hover:bg-green/80 transition-all uppercase text-sm tracking-wider"
                     >
                         {isEditing ? "Update Note" : "Save Note"}
