@@ -60,14 +60,14 @@ export default function ReverseShellTab() {
         : "a0fe381b5c51-4f1b-89ca-3970d53b82";
 
   return (
-    <div className="flex flex-col gap-6">
-      <div className="border border-green/40 rounded-lg p-6 bg-black/40">
-        <div className="flex justify-between items-center mb-6">
-          <h2 className="text-xl font-semibold text-white">Reverse Shell Console</h2>
+    <div className="flex flex-col gap-4 sm:gap-6">
+      <div className="border border-green/40 rounded-lg p-4 sm:p-6 bg-black/40">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 sm:gap-0 mb-6">
+          <h2 className="text-lg sm:text-xl font-semibold text-white">Reverse Shell Console</h2>
           {status === "idle" && (
             <button
               onClick={handleActivate}
-              className="border border-green/50 rounded px-4 py-2 text-green text-sm font-semibold hover:bg-green/10 transition-colors cursor-pointer"
+              className="w-full sm:w-auto border border-green/50 rounded px-4 py-2 text-green text-sm font-semibold hover:bg-green/10 transition-colors cursor-pointer"
             >
               Activate Reverse Shell
             </button>
@@ -75,7 +75,7 @@ export default function ReverseShellTab() {
         </div>
 
         {/* Status Cards */}
-        <div className="grid grid-cols-3 gap-4 mb-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
           {/* Connection Status */}
           <div className="border border-green/30 rounded-lg p-4 bg-[#0a0f0a]">
             <div className="flex items-center gap-2 text-gray-400 text-xs mb-2">

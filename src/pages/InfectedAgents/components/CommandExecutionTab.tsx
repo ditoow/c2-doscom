@@ -2,11 +2,11 @@ const commonCommands = ["Whoami", "pwd", "ls -la", "ps aux", "netstat", "uname -
 
 export default function CommandExecutionTab() {
   return (
-    <div className="flex flex-col gap-6">
+    <div className="flex flex-col gap-4 sm:gap-6">
       {/* Common Commands */}
-      <div className="border border-green/40 rounded-lg p-6 bg-black/40">
-        <h2 className="text-xl font-semibold text-white mb-4">Common Commands</h2>
-        <div className="grid grid-cols-6 gap-3">
+      <div className="border border-green/40 rounded-lg p-4 sm:p-6 bg-black/40">
+        <h2 className="text-lg sm:text-xl font-semibold text-white mb-4">Common Commands</h2>
+        <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-2 sm:gap-3">
           {commonCommands.map((cmd) => (
             <button
               key={cmd}
@@ -19,28 +19,28 @@ export default function CommandExecutionTab() {
       </div>
 
       {/* Execute Command */}
-      <div className="border border-green/40 rounded-lg p-6 bg-black/40">
-        <h2 className="text-xl font-semibold text-white mb-4">Execute Command</h2>
-        <div className="flex gap-3">
-          <div className="flex-1 flex items-center border border-green/50 rounded px-4 py-3 bg-transparent">
+      <div className="border border-green/40 rounded-lg p-4 sm:p-6 bg-black/40">
+        <h2 className="text-lg sm:text-xl font-semibold text-white mb-4">Execute Command</h2>
+        <div className="flex flex-col sm:flex-row gap-3">
+          <div className="flex-1 flex items-center border border-green/50 rounded px-3 sm:px-4 py-2 sm:py-3 bg-transparent">
             <span className="text-green mr-2 font-bold">$</span>
             <input
               type="text"
               placeholder="Enter command to execute..."
-              className="flex-1 bg-transparent text-white placeholder-gray-500 outline-none"
+              className="flex-1 bg-transparent text-white placeholder-gray-500 outline-none text-sm sm:text-base w-full"
             />
           </div>
-          <button className="border border-green/50 rounded px-6 py-3 text-green font-semibold hover:bg-green/10 transition-colors cursor-pointer">
+          <button className="border border-green/50 rounded px-6 py-2 sm:py-3 text-green font-semibold hover:bg-green/10 transition-colors cursor-pointer whitespace-nowrap">
             Execute
           </button>
         </div>
       </div>
 
       {/* Execution Results */}
-      <div className="border border-green/40 rounded-lg p-6 bg-black/40">
+      <div className="border border-green/40 rounded-lg p-4 sm:p-6 bg-black/40">
         <div className="flex justify-between items-center mb-4">
-          <h2 className="text-xl font-semibold text-white">Execution Results</h2>
-          <button className="border border-green/50 rounded px-4 py-1.5 text-green text-sm font-semibold hover:bg-green/10 transition-colors cursor-pointer">
+          <h2 className="text-lg sm:text-xl font-semibold text-white">Execution Results</h2>
+          <button className="border border-green/50 rounded px-3 py-1.5 text-green text-xs sm:text-sm font-semibold hover:bg-green/10 transition-colors cursor-pointer">
             Refresh
           </button>
         </div>

@@ -18,19 +18,19 @@ export default function InfectedAgents() {
   return (
     <div className="w-full">
       {/* Header */}
-      <div className="flex flex-col pl-14 py-10">
+      <div className="flex flex-col px-4 sm:px-8 lg:px-14 py-6 md:py-10">
         <div className="w-full border-b border-green">
-          <h1 className="text-4xl font-semibold text-green pb-7">
-            Infected Agents <span className="inline-block w-3 h-3 rounded-full bg-green ml-2 animate-pulse" />
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-green pb-5 md:pb-7 flex items-center">
+            Infected Agents <span className="inline-block w-2 h-2 md:w-3 md:h-3 rounded-full bg-green ml-2 animate-pulse" />
           </h1>
         </div>
       </div>
 
-      <div className="flex gap-8 px-14 pb-10">
+      <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 px-4 sm:px-8 lg:px-14 pb-10">
         {/* Main Content */}
-        <div className="flex-1 flex flex-col gap-6 min-w-0">
+        <div className="flex-1 flex flex-col gap-6 min-w-0 overflow-x-hidden">
           {/* Tabs */}
-          <div className="flex gap-1 border-b border-green/30">
+          <div className="flex gap-1 border-b border-green/30 overflow-x-auto whitespace-nowrap">
             {tabs.map((tab) => (
               <button
                 key={tab.key}

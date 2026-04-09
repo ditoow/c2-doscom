@@ -55,19 +55,20 @@ export default function Dashboard() {
   ];
 
   return (
-    <div className="flex flex-col px-14 py-10 ">
+    <div className="flex flex-col px-4 sm:px-8 lg:px-14 py-6 lg:py-10">
       <div className="w-full border-b border-green">
-        <h1 className="text-4xl font-semibold text-green pb-7 ">
-          Dashboard Overview <span className="inline-block w-3 h-3 rounded-full bg-green ml-2 animate-pulse" />
+        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-green pb-5 lg:pb-7 flex items-center">
+          Fairuz ganteng
+          <span className="inline-block w-2 h-2 lg:w-3 lg:h-3 rounded-full bg-green ml-2 animate-pulse" />
         </h1>
       </div>
       {/* Stats Card */}
-      <div className="mt-9 grid grid-cols-3 gap-5">
+      <div className="mt-6 lg:mt-9 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5">
         {stats.map((item) => (
           <StatCard key={item.title} title={item.title} value={item.value} />
         ))}
       </div>
-      <div className="mt-6 grid grid-cols-3 gap-5">
+      <div className="mt-6 lg:mt-6 grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-5">
         <InfectedAgentsTable rows={rows} />
         <SystemLogsCard logs={logs} />
       </div>
