@@ -1,6 +1,8 @@
 import { useState } from "react";
 import NoteCard from "./components/NoteCard";
 import NoteForm from "./components/NoteForm";
+import { ScrollArea } from "@/components/ui/scroll-area"
+
 import {
   Dialog,
   DialogClose,
@@ -96,23 +98,25 @@ export default function Notes() {
         {/* KOLOM KIRI: HISTORY NOTE */}
         <div className="bg-green/5 rounded-lg w-1/3 flex flex-col p-5 border border-green/20  ">
 
-          <div className="space-y-4 overflow-y-auto max-h-[600px] custom-scrollbar">
-            {notes.length === 0 ? (
-              <p className="text-green/30 italic">No notes yet...</p>
-            ) : (
-              notes.map(note => (
-                <NoteCard
-                  key={note.id}
-                  title={note.title}
-                  content={note.content}
-                  date={note.date}
-                  isActive={editingNote?.id === note.id}
-                  onDelete={() => setNotes(notes.filter(n => n.id !== note.id))}
-                  onEdit={() => setEditingNote(note)}
-                />
-              ))
-            )}
-          </div>
+          <ScrollArea className="h-[600px] w-full rounded-md pr-4">
+  <div className="space-y-4">
+    {notes.length === 0 ? (
+      <p className="text-green/30 italic">No notes yet...</p>
+    ) : (
+      notes.map(note => (
+        <NoteCard
+          key={note.id}
+          title={note.title}
+          content={note.content}
+          date={note.date}
+          isActive={editingNote?.id === note.id}
+          onDelete={() => setNotes(notes.filter(n => n.id !== note.id))}
+          onEdit={() => setEditingNote(note)}
+        />
+      ))
+    )}
+  </div>
+</ScrollArea>
         </div>
 
         {/* KOLOM KANAN: CREATE/EDIT FORM */}
