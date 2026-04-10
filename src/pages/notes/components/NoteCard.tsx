@@ -50,12 +50,13 @@ export default function NoteCard({ title, content, date, isActive, onDelete, onE
                 </div>
             </DialogTrigger>
 
-            <DialogContent>
+            <DialogContent className="bg-zinc-950 border-green/50 border-green shadow-[0_0_20px_rgba(16,185,129,0.2)]">
+    
                 <DialogHeader>
                     <DialogTitle className="text-green text-xl">{title}</DialogTitle>
                     <DialogDescription>{date}</DialogDescription>
                 </DialogHeader>
-                <div className="text-black/80 whitespace-pre-wrap mt-4 max-h-[60vh] overflow-y-auto">
+                <div className=" text-green whitespace-pre-wrap mt-4 max-h-[600vh] overflow-y-auto">
                     {content}
                 </div>
             </DialogContent>
