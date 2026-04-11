@@ -51,8 +51,8 @@ export default function NoteCard({ title, content, date, isActive, onDelete, onE
                     </div>
                 </div>
             </DialogTrigger>
-
-            <DialogContent className="bg-zinc-950 border-green/50 border-green shadow-[0_0_20px_rgba(16,185,129,0.2)]w-fit max-w-[95vw]min-w-[300px] sm:max-w-[70vw] sm:min-w-[300px]">
+//card pop up
+            <DialogContent className="bg-zinc-950 border-green/50 border-green shadow-[0_0_20px_rgba(16,185,129,0.2)] w-fit max-w-[95vw] min-w-[300px] sm:max-w-[70vw] sm:min-w-[800px]">
     
                 <DialogHeader>
                     <DialogTitle className="text-green text-xl">{title}</DialogTitle>

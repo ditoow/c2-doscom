@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { ScrollArea } from "@/components/ui/scroll-area"
+
 import {
     Dialog,
     DialogContent,
@@ -79,14 +81,13 @@ export default function NoteForm({
                     />
                 </div>
 
-
+                
                 <div className="flex flex-col flex-1">
-                    <label className="text-[10px] text-green/50 uppercase mb-1 tracking-tighter font-mono"></label>
                     <textarea
                         value={content}
                         onChange={(e) => setContent(e.target.value)}
                         placeholder="Initialize content body..."
-                        className="flex-1 bg-black/40 border border-green/50 rounded-lg p-4 text-green outline-none focus:border-green resize-none min-h-[300px] font-mono custom-scrollbar"
+                        className="flex-1 bg-black/40 border border-green/50 rounded-lg p-4 text-green outline-none focus:border-green resize-none min-h-[300px] font-mono custom-scrollbar "
                     />
                 </div>
 
@@ -113,7 +114,7 @@ export default function NoteForm({
                         }}
                         className="rounded-xl flex-1 bg-green text-black py-3 font-bold hover:bg-green/80 transition-all uppercase text-sm tracking-wider"
                     >
-                        {isEditing ? "Update Note" : "Save Note"}
+                        {isEditing ? "Update" : "Save"}
                     </button>
                 </div>
             </div>

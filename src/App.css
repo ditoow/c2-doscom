@@ -128,3 +128,32 @@
     @apply font-sans;
     }
 }
+
+/* Tambahkan di bagian paling bawah setelah @layer base */
+
+@utility custom-scrollbar {
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    /* Menggunakan hijau neon transparan */
+    background: oklch(0.627 0.265 149.214 / 0.3);
+    border-radius: 10px;
+  }
+
+  &:hover::-webkit-scrollbar-thumb {
+    /* Hijau neon solid saat hover */
+    background: oklch(0.627 0.265 149.214);
+    box-shadow: 0 0 12px oklch(0.627 0.265 149.214 / 0.5);
+  }
+
+  /* Support untuk Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: oklch(0.627 0.265 149.214 / 0.5) transparent;
+}
