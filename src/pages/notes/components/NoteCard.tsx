@@ -1,3 +1,5 @@
+import { ScrollArea } from "@/components/ui/scroll-area"
+
 import {
     Dialog,
     DialogContent,
@@ -50,15 +52,17 @@ export default function NoteCard({ title, content, date, isActive, onDelete, onE
                 </div>
             </DialogTrigger>
 
-            <DialogContent className="bg-zinc-950 border-green/50 border-green shadow-[0_0_20px_rgba(16,185,129,0.2)]">
+            <DialogContent className="bg-zinc-950 border-green/50 border-green shadow-[0_0_20px_rgba(16,185,129,0.2)]w-fit max-w-[95vw]min-w-[300px] sm:max-w-[70vw] sm:min-w-[300px]">
     
                 <DialogHeader>
                     <DialogTitle className="text-green text-xl">{title}</DialogTitle>
                     <DialogDescription>{date}</DialogDescription>
                 </DialogHeader>
-                <div className=" text-green whitespace-pre-wrap mt-4 max-h-[600vh] overflow-y-auto">
+                <ScrollArea className="mt-4 max-h-[60vh] w-full pr-4">
+                <div className=" text-green whitespace-pre-wrap mt-4 leading-relaxed">
                     {content}
                 </div>
+                </ScrollArea>
             </DialogContent>
         </Dialog>
     );
