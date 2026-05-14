@@ -25,9 +25,9 @@ export default function NoteCard({ title, content, date, isActive, onDelete, onE
             <DialogTrigger asChild>
                 <div className={`cursor-pointer border p-6 flex flex-col justify-between rounded-lg  hover:bg-green/5 transition-all group ${isActive ? 'bg-green/10 border-green' : 'border-green/50'}`}>
                     <div>
-                        <h3 className="text-xl font-bold mb-1 uppercase text-green">{title}</h3>
-                        <p className="text-sm text-green/60 mb-3">{date}</p>
-                        <p className="text-green/80 line-clamp-3">{content}</p>
+                        <h3 className="text-xl font-bold mb-1 text-white">{title}</h3>
+                        <p className="text-sm text-white/60 mb-3">{date}</p>
+                        <p className="text-white/80 line-clamp-3">{content}</p>
                     </div>
 
                     <div className="flex gap-4 mt-6 border-t border-green/20 pt-4">
@@ -52,18 +52,18 @@ export default function NoteCard({ title, content, date, isActive, onDelete, onE
                     </div>
                 </div>
             </DialogTrigger>
-//card pop up
-            <DialogContent className="bg-zinc-950 border-green/50 border-green shadow-[0_0_20px_rgba(16,185,129,0.2)] w-fit max-w-[95vw] min-w-[300px] sm:max-w-[70vw] sm:min-w-[800px]">
+            {/* card pop up */}
+            <DialogContent className="bg-zinc-950 border-green/50 shadow-[0_0_20px_rgba(16,185,129,0.2)] flex flex-col w-full max-w-[95vw] sm:max-w-[800px] h-[75vh]">
     
-                <DialogHeader>
-                    <DialogTitle className="text-green text-xl">{title}</DialogTitle>
-                    <DialogDescription>{date}</DialogDescription>
+                <DialogHeader className="border-b border-green/20 pb-4 shrink-0">
+                    <DialogTitle className="text-green text-2xl font-bold tracking-wide text-left">{title}</DialogTitle>
+                    <DialogDescription className="text-left text-white/50">{date}</DialogDescription>
                 </DialogHeader>
-                <ScrollArea className="mt-4 max-h-[60vh] w-full pr-4">
-                <div className=" text-green whitespace-pre-wrap mt-4 leading-relaxed">
-                    {content}
+                <div className="flex-1 w-full pr-2 mt-2 overflow-y-auto custom-scrollbar">
+                    <div className="text-white whitespace-pre-wrap leading-relaxed text-left text-base pb-6">
+                        {content}
+                    </div>
                 </div>
-                </ScrollArea>
             </DialogContent>
         </Dialog>
     );

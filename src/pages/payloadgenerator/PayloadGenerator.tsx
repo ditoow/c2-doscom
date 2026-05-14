@@ -19,7 +19,7 @@ export default function PayloadGenerator() {
     };
 
     return (
-        <div className="flex flex-col px-14 py-10 w-full min-h-screen">
+        <div className="flex flex-col px-14 py-10 w-full h-[calc(100vh-1px)] overflow-y-auto custom-scrollbar">
             {/* HEADER */}
             <div className="flex justify-between w-full border-b border-green mb-9">
                 <h1 className="text-4xl font-semibold text-green pb-7">
