@@ -6,6 +6,7 @@ import InfectedAgents from "./pages/InfectedAgents/InfectedAgents";
 import SystemLogs from "./pages/systemlogs/SystemLogs";
 import Notes from "./pages/notes/Notes";
 import PayloadGenerator from "./pages/payloadgenerator/PayloadGenerator";
+import Settings from "./pages/settings/Settings";
 
 function App() {
   return (
@@ -24,6 +25,8 @@ function App() {
             <Route path="/notes" element={<Notes />} />
             {/* System Config Page */}
             <Route path="/payload-generator" element={<PayloadGenerator />} />
+            {/* Settings Page */}
+            <Route path="/settings" element={<Settings />} />
 
 
           </Route>
