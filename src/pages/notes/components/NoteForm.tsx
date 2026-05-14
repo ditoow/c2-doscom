@@ -45,7 +45,7 @@ export default function NoteForm({
     };
 
     return (
-        <div className=" border-green/30 p-8 rounded flex flex-col h-full">
+        <div className="bg-[#0D1117] border border-green/30 p-8 rounded-xl flex flex-col h-full">
             <Dialog open={showError} onOpenChange={setShowError}>
                 <DialogContent className="border-green/50">
                     <DialogHeader>

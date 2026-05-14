@@ -1,4 +1,5 @@
-import { ScrollArea } from "@/components/ui/scroll-area"
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { Edit, Trash2 } from "lucide-react";
 
 import {
     Dialog,
@@ -29,24 +30,24 @@ export default function NoteCard({ title, content, date, isActive, onDelete, onE
                         <p className="text-green/80 line-clamp-3">{content}</p>
                     </div>
 
-                    <div className="flex gap-4 mt-6 border-t border-green/20 pt-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <div className="flex gap-4 mt-6 border-t border-green/20 pt-4">
                         <button
                             onClick={(e) => {
                                 e.stopPropagation();
                                 onEdit();
                             }}
-                            className="text-sm text-blue-400 hover:underline"
+                            className="text-[#1c739e] hover:text-blue-400 transition-colors"
                         >
-                            Edit Note
+                            <Edit size={22} strokeWidth={2.5} />
                         </button>
                         <button
                             onClick={(e) => {
                                 e.stopPropagation();
                                 onDelete();
                             }}
-                            className="text-sm text-red-500 hover:underline"
+                            className="text-[#fc4e4e] hover:text-red-400 transition-colors"
                         >
-                            Hapus
+                            <Trash2 size={22} strokeWidth={2.5} />
                         </button>
                     </div>
                 </div>
