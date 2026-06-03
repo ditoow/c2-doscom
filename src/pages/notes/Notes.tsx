@@ -27,13 +27,14 @@ export default function Notes() {
   const [editingNote, setEditingNote] = useState<Note | null>(null);
 
   const handleSave = (title: string, content: string) => {
+    const formattedTitle = title.trim() ? title.trim().split(/\s+/).map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(" ") : "";
     if (editingNote) {
       // Jika edit, kita bisa pilih mau update jamnya atau biarkan jam lama
-      setNotes(notes.map(n => n.id === editingNote.id ? { ...n, title, content } : n));
+      setNotes(notes.map(n => n.id === editingNote.id ? { ...n, title: formattedTitle, content } : n));
     } else {
       const newNote: Note = {
         id: Date.now().toString(),
-        title,
+        title: formattedTitle,
         content,
         // MENGGUNAKAN FORMAT: "6 Apr 2026, 21:23"
         date: new Date().toLocaleString('id-ID', {
@@ -50,7 +51,7 @@ export default function Notes() {
   };
 
   return (
-    <div className="flex flex-col px-14 py-10 w-full min-h-screen">
+    <div className="flex flex-col px-14 py-10 w-full h-[calc(100vh-1px)] overflow-hidden">
       {/* HEADER */}
       <div className="flex justify-between w-full border-b border-green mb-9">
 
@@ -93,15 +94,15 @@ export default function Notes() {
       </div>
 
       {/* MAIN LAYOUT (Dua Kolom) */}
-      <div className="flex gap-10 h-full">
+      <div className="flex gap-10 flex-1 min-h-0">
 
         {/* KOLOM KIRI: HISTORY NOTE */}
-        <div className="bg-green/5 rounded-lg w-1/3 flex flex-col p-5 border border-green/20  ">
+        <div className="bg-black rounded-[10px] w-1/3 flex flex-col p-5 border border-green/30 min-h-0 overflow-hidden">
 
-          <ScrollArea className="h-[600px] w-full rounded-md pr-4">
+          <div className="flex-1 w-full rounded-md pr-4 overflow-y-auto custom-scrollbar pb-10">
   <div className="space-y-4">
     {notes.length === 0 ? (
-      <p className="text-green/30 italic">No notes yet...</p>
+      <p className="text-white/30 italic">No notes yet...</p>
     ) : (
       notes.map(note => (
         <NoteCard
@@ -116,11 +117,11 @@ export default function Notes() {
       ))
     )}
   </div>
-</ScrollArea>
+</div>
         </div>
 
         {/* KOLOM KANAN: CREATE/EDIT FORM */}
-        <div className="flex-1">
+        <div className="flex-1 min-h-0 overflow-hidden">
           <NoteForm
             onSave={handleSave}
             onCancel={() => setEditingNote(null)}

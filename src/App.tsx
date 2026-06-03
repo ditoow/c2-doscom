@@ -5,6 +5,7 @@ import Layout from "./components/layout/Layout";
 import InfectedAgents from "./pages/InfectedAgents/InfectedAgents";
 import SystemLogs from "./pages/systemlogs/SystemLogs";
 import Notes from "./pages/notes/Notes";
+import PayloadGenerator from "./pages/payloadgenerator/PayloadGenerator";
 
 function App() {
   return (
@@ -21,6 +22,8 @@ function App() {
             <Route path="/system-logs" element={<SystemLogs />} />
             {/* Notes Page */}
             <Route path="/notes" element={<Notes />} />
+            {/* System Config Page */}
+            <Route path="/payload-generator" element={<PayloadGenerator />} />
 
 
           </Route>

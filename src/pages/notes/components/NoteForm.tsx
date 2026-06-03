@@ -45,7 +45,7 @@ export default function NoteForm({
     };
 
     return (
-        <div className=" border-green/30 p-8 rounded flex flex-col h-full">
+        <div className="bg-[#0D1117] border border-green/30 p-8 rounded-[10px] flex flex-col h-full">
             <Dialog open={showError} onOpenChange={setShowError}>
                 <DialogContent className="border-green/50">
                     <DialogHeader>
@@ -65,7 +65,7 @@ export default function NoteForm({
                 </DialogContent>
             </Dialog>
             <h2 className="text-2xl font-bold text-green mb-8 uppercase tracking-widest">
-                {isEditing ? "> Update Note" : "Create New Note"}
+                {isEditing ? "Update Note" : "Create New Note"}
             </h2>
 
             <div className="space-y-6 flex-1 flex flex-col">
@@ -77,7 +77,7 @@ export default function NoteForm({
                         value={title}
                         onChange={(e) => setTitle(e.target.value)}
                         placeholder="Type title here..."
-                        className="bg-black border rounded-lg border-green/50 p-2 text-green outline-none focus:border-green transition-all font-mono"
+                        className="bg-black border rounded-lg border-green/50 p-3 text-white outline-none focus:border-green transition-all"
                     />
                 </div>
 
@@ -87,17 +87,17 @@ export default function NoteForm({
                         value={content}
                         onChange={(e) => setContent(e.target.value)}
                         placeholder="Initialize content body..."
-                        className="flex-1 bg-black/40 border border-green/50 rounded-lg p-4 text-green outline-none focus:border-green resize-none min-h-[300px] font-mono custom-scrollbar "
+                        className="flex-1 bg-black border border-green/50 rounded-lg p-4 text-white outline-none focus:border-green resize-none min-h-[300px] custom-scrollbar"
                     />
                 </div>
 
 
-                <div className="flex pl-120 gap-4 pt-6">
+                <div className="flex justify-end gap-4 pt-6 mt-auto">
 
                     <button
                         type="button"
                         onClick={handleClear}
-                        className="rounded-xl flex-2 border border-green text-green py-3 font-bold hover:bg-green/10 transition-all uppercase text-sm tracking-wider"
+                        className="rounded-xl border border-green text-green py-3 px-8 font-bold hover:bg-green/10 transition-all uppercase text-sm tracking-wider"
                     >
                         Clear
                     </button>
@@ -110,9 +110,11 @@ export default function NoteForm({
                                 setShowError(true);
                             } else {
                                 onSave(title, content);
+                                setTitle("");
+                                setContent("");
                             }
                         }}
-                        className="rounded-xl flex-1 bg-green text-black py-3 font-bold hover:bg-green/80 transition-all uppercase text-sm tracking-wider"
+                        className="rounded-xl bg-green text-black py-3 px-12 font-bold hover:bg-green/80 transition-all uppercase text-sm tracking-wider"
                     >
                         {isEditing ? "Update" : "Save"}
                     </button>
